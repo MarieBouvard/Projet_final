@@ -7,6 +7,9 @@ gem 'faker', '~> 2.13'
 
 gem 'devise', '~> 4.7'
 
+gem "letter_opener", group: :development
+
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.6'
