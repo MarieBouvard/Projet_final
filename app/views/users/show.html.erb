@@ -1,0 +1,19 @@
+<div class="card">
+  <h3 class="card-header text-center"><%= @user.first_name %> <%= @user.last_name %></h3>
+
+  <div class="container col-8 p-4">
+  <h4 class="card-title text-center"><%= @user.description %></h4>
+  <p class="card-body"> 
+</p>
+  <% if @user == current_user %>
+<%= link_to "Modifier son mail", edit_user_registration_path(@user.id), :class=> "btn btn-primary ml-auto"%>
+  </div>
+   <% end %>
+  </div>
+<% if @events != nil %>
+    <br>
+    <h3 class="text-center">Liste des Events</h3>
+    <br>
+    <%= render @events %>
+<% end %>
+</div>

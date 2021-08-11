@@ -1,0 +1,39 @@
+<% if @event.errors.any? %>
+<div class="px-5 pt-4 alert alert-danger" role="alert">
+  <p>Nous n'avons pas réussi à créer l'Event pour la (ou les) raison(s) suivante(s) :</p>
+  <ul>
+    <% @event.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<%= form_with model: @event, class: "form-group", local: true do |f| %>
+    <%= f.label :title,'Titre' %>
+     <%= f.text_field :title, class: "form-control", placeholder: 'Écris un titre accrocheur'%>
+     <br>
+     <%= f.label :description,'Description' %>
+     <%= f.text_area :description, class: "form-control", rows: 3, placeholder: 'On veux des détails !!!' %>
+     <br>
+     <div class="form-row">
+       <div class="col">
+         <%= f.label :location,'Lieux' %>
+         <%= f.text_field :location, class: "form-control", rows:1, placeholder: 'Où ?' %>
+       </div>
+       <div class="col">
+       <%= f.label :start_date,'Date' %>
+       <%= f.date_field :start_date, class: "form-control",placeholder: 'Quand ?' %>
+       </div>
+       <div class="col">
+       <%= f.label :duration,'Durée' %>
+       <%= f.number_field :duration, class: "form-control", rows:1, min:5,step:5,placeholder: 'La Durée ?' %>
+       </div>
+       <div class="col">
+         <%= f.label :price,'Prix' %>
+         <%= f.number_field :price, class: "form-control", min:1,max:1000, rows:1,placeholder: 'Les pépètes' %>
+       </div>
+     </div>
+     <br>
+     <%= f.submit "Poster", class: "btn btn-primary" %>
+   <% end %>
